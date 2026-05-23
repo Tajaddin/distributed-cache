@@ -1,0 +1,80 @@
+# distributed-cache hero-number benchmark
+timestamp:  2026-05-23T01:30-04:00
+hardware:   Intel i7-10875H 8c/16t @ 2.3GHz; 32 GB RAM; Windows 11
+runtime:    Python 3.12 (in-process, 4-node cluster)
+command:    distcache-bench --nodes 4 --ops 200000 --keys 50000 --read-ratio 0.8 --per-node-size 10000
+runs:       3 consecutive
+
+## Summary
+median ops/sec:           94,441  (README hero: 96,074 — within noise)
+max ops/sec:              95,461
+hit_rate (deterministic): 0.7272  (README: 72.7% — exact)
+imbalance (deterministic): 0.056  (README: 5.6% — exact)
+
+## Raw runs
+{
+  "config": {
+    "n_nodes": 4,
+    "n_ops": 200000,
+    "n_keys": 50000,
+    "read_ratio": 0.8,
+    "per_node_size": 10000
+  },
+  "distcache": {
+    "seconds": 2.095,
+    "ops_per_sec": 95461,
+    "hits": 116412,
+    "misses": 43666,
+    "hit_rate": 0.7272,
+    "evictions": 0,
+    "peak_memory_bytes": 2161936,
+    "peak_memory_kb": 2111.3,
+    "key_distribution_min": 12162,
+    "key_distribution_max": 12857,
+    "key_distribution_imbalance": 0.056
+  }
+}
+{
+  "config": {
+    "n_nodes": 4,
+    "n_ops": 200000,
+    "n_keys": 50000,
+    "read_ratio": 0.8,
+    "per_node_size": 10000
+  },
+  "distcache": {
+    "seconds": 2.118,
+    "ops_per_sec": 94441,
+    "hits": 116412,
+    "misses": 43666,
+    "hit_rate": 0.7272,
+    "evictions": 0,
+    "peak_memory_bytes": 2161936,
+    "peak_memory_kb": 2111.3,
+    "key_distribution_min": 12162,
+    "key_distribution_max": 12857,
+    "key_distribution_imbalance": 0.056
+  }
+}
+{
+  "config": {
+    "n_nodes": 4,
+    "n_ops": 200000,
+    "n_keys": 50000,
+    "read_ratio": 0.8,
+    "per_node_size": 10000
+  },
+  "distcache": {
+    "seconds": 2.353,
+    "ops_per_sec": 84994,
+    "hits": 116412,
+    "misses": 43666,
+    "hit_rate": 0.7272,
+    "evictions": 0,
+    "peak_memory_bytes": 2161936,
+    "peak_memory_kb": 2111.3,
+    "key_distribution_min": 12162,
+    "key_distribution_max": 12857,
+    "key_distribution_imbalance": 0.056
+  }
+}

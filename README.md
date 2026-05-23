@@ -20,6 +20,8 @@ Together they implement the same shape as Redis Cluster's [consistent-hashing sl
 
 `distcache-bench --nodes 4 --ops 200000 --keys 50000 --read-ratio 0.8 --per-node-size 10000`
 
+Last measured 3-run baseline (i7-10875H, 32 GB RAM, Windows 11): full output in [`bench/results.txt`](bench/results.txt). `hit_rate` and `imbalance` are deterministic for a given seed and match exactly; `ops_per_sec` varies with machine load (this hardware: median ~94K, max ~95K).
+
 ```json
 {
   "config": {"n_nodes": 4, "n_ops": 200000, "n_keys": 50000, "read_ratio": 0.8, "per_node_size": 10000},
